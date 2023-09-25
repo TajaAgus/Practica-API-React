@@ -1,0 +1,28 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+  
+.input-container {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.character-img {
+    width: 350px; 
+    height: auto;
+}
+
+.character-name {
+    display: block;
+    text-align: center; 
+    font-weight: bold; 
+    margin-top: 10px; 
+    font-size: x-large;
+}

@@ -3,18 +3,16 @@ import axios from "axios";
 import './allcharacters.css'
 
 export default function AllCharacters() {
-    const characterEndPoint = "https://rickandmortyapi.com/api/character/";
-    const characterEndPointForPages = "https://rickandmortyapi.com/api/character/?page=";
     const [characterlist, setCharacterList] = useState([])
   
     useEffect(() => {
       const APICall = async () => {
         try {
-          const res = await axios.get(characterEndPoint);
+          const res = await axios.get("https://rickandmortyapi.com/api/character/");
           let listAux = []
 
           for (let i = 1; i <= res.data.info.pages; i++) {
-              const auxRes = await axios.get(characterEndPointForPages + i)
+              const auxRes = await axios.get(`https://rickandmortyapi.com/api/character/?page=${i}`)
               listAux.push(auxRes.data.results)
           }
 
@@ -30,8 +28,7 @@ export default function AllCharacters() {
     return(
       <div className="img-character-div">
         {characterlist.map((item, index)=>(
-         <img key={index} src={item.image} alt={item.name} />
-        ))}
+         <img key={index} src={item.image} alt={item.name} />))}
       </div>
     )
   }

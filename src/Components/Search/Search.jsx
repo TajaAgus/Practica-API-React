@@ -39,11 +39,7 @@ export default function Search() {
       const completion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo-0613",
         messages: [
-          {
-            role: "system",
-            content:
-              "You are a tool that selects rick and morty characters based on the user's input",
-          },
+          { role: "system", content: "You are a tool that selects rick and morty characters based on the user's input" },
           { role: "user", content: userInput },
         ],
         functions: [
@@ -81,8 +77,6 @@ export default function Search() {
       } catch (error){
         console.error("Bad gpt response")
       }
-     
-
       setCharacter(res.data);
     } catch (error) {
       console.error(error);
